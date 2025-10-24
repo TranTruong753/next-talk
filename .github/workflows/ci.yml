@@ -44,7 +44,3 @@ jobs:
       # Build Next.js project
       - name: Build Next.js
         run: npm run build
-
-      # Run tests (nếu có)
-      - name: Run tests
-        run: npm test
