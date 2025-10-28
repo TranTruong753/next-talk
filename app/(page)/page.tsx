@@ -1,47 +1,39 @@
 'use client'
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
-import { cn } from "@/lib/utils";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { Send } from "lucide-react";
 
 import React from "react";
 
-const friends = [
-  { id: 1, name: "John Doe", status: "online", avatar: "/avatars/john.jpg", lastMessage: "Hello there!" },
-  { id: 2, name: "Jane Smith", status: "offline", avatar: "/avatars/jane.jpg", lastMessage: "See you tomorrow" },
-  { id: 3, name: "Mike Johnson", status: "online", avatar: "/avatars/mike.jpg", lastMessage: "How are you?" },
-  { id: 4, name: "Sarah Wilson", status: "online", avatar: "/avatars/sarah.jpg", lastMessage: "I sent the documents" },
-];
-
-
 export default function Home() {
-  const [selectedFriend, setSelectedFriend] = React.useState(friends[0]);
-  const [message, setMessage] = React.useState("");
+  // const [selectedFriend, setSelectedFriend] = React.useState(friends[0]);
+  // const [message, setMessage] = React.useState("");
 
-  const handleSendMessage = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!message.trim()) return;
+  // const handleSendMessage = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!message.trim()) return;
 
-    // Handle send message logic here
-    console.log("Sending message:", message);
-    setMessage("");
-  };
+  //   // Handle send message logic here
+  //   console.log("Sending message:", message);
+  //   setMessage("");
+  // };
 
 
   return (
     <React.Fragment>
-      <ResizablePanelGroup
+      Trang giới thiệu
+      {/* <ResizablePanelGroup
         direction="horizontal"
         className=" border w-100 space-x-0!"
       >
         <ResizablePanel order={1} defaultSize={25} maxSize={25} minSize={20}>
           <div className="flex flex-col h-full border-r">
-            <div className="m-2 rounded-2xl flex items-center gap-3 p-4 border bg-gradient-to-br from-purple-500 to-pink-500">
+            <div className="m-2 rounded-2xl flex justify-between items-center gap-3 p-4 border bg-gradient-to-br from-purple-500 to-pink-500">
               <h1 className="text-white font-semibold">Next-Talk</h1>
+              <div className="flex gap-x-1 items-center">
+                <Moon color="white" size={20} />
+                <Switch id="airplane-mode" />
+                <Sun color="white" size={20} />
+              </div>
             </div>
+
             <div className="p-4 ">
               <h2 className="text-xl font-semibold">List friends</h2>
             </div>
@@ -78,13 +70,20 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            <div className="m-2 rounded-2xl flex items-center gap-3 p-2 border cursor-pointer">
+              <Avatar className="select-none flex justify-center items-center rounded-full w-[45px] h-[45px] bg-gray-300">
+                <AvatarImage src={''} alt={'TQT'} />
+                <AvatarFallback>{'T'}</AvatarFallback>
+              </Avatar>
+            </div>
           </div>
         </ResizablePanel>
         <ResizableHandle className='w-0 bg-transparent' />
 
         <ResizablePanel order={2} defaultSize={75} >
           <div className="flex flex-col h-full ">
-            {/* Chat Header */}
+          
             <div className="flex items-center gap-3 p-4 border-b  ">
               <Avatar className="select-none flex justify-center items-center rounded-full h-9 w-9 bg-gray-300">
                 <AvatarImage src={selectedFriend.avatar} alt={selectedFriend.name} />
@@ -106,16 +105,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/20">
-              {/* Example messages - you can replace with real messages */}
+
               <div className="flex items-start gap-2">
                 <Avatar className="select-none flex justify-center items-center rounded-full h-9 w-9 bg-gray-300">
                   <AvatarImage src={selectedFriend.avatar} />
                   <AvatarFallback>{selectedFriend.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="bg-white rounded-lg p-3 shadow-sm max-w-[70%]">
-                  <p className="text-sm">Hello! How are you doing today?</p>
+                  <p className="text-sm">Hello How are you doing today?</p>
                 </div>
               </div>
 
@@ -123,10 +121,10 @@ export default function Home() {
 
                 <div className="flex flex-col items-end space-y-1">
                   <div className="bg-primary text-primary-foreground rounded-lg p-3 shadow-sm ">
-                    <p className="text-sm">I'm good! Just working on some projects. </p>
+                    <p className="text-sm">I am good Just working on some projects.!</p>
                   </div>
                   <p className="text-xs font-normal">Hôm qua 15:46 </p>
-                  <Badge className="bg-gradient-to-br from-orange-400 to-red-500">seen</Badge>
+                  <Badge className=" bg-gradient-to-br from-purple-500 to-pink-500">seen</Badge>
                 </div>
                 <Avatar className="select-none flex justify-center items-center rounded-full h-9 w-9 bg-gray-300">
                   <AvatarImage src="/avatars/you.jpg" />
@@ -135,7 +133,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Message Input */}
             <div className="flex justify-center">
               <form onSubmit={handleSendMessage} className="w-5xl p-5 mx-7 mb-7 rounded-2xl border">
                 <div className="flex gap-2">
@@ -146,7 +143,7 @@ export default function Home() {
                     onChange={(e) => setMessage(e.target.value)}
                     className="flex-1"
                   />
-                  <Button type="submit" size="icon" disabled={!message.trim()}>
+                  <Button type="submit" size="icon" disabled={!message.trim()} className="bg-gradient-to-br from-purple-500 to-pink-500">
                     <Send className="h-4 w-4" />
                   </Button>
                 </div>
@@ -154,7 +151,7 @@ export default function Home() {
             </div>
           </div>
         </ResizablePanel>
-      </ResizablePanelGroup>
+      </ResizablePanelGroup> */}
     </React.Fragment>
   );
 }
