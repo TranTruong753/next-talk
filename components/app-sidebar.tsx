@@ -42,7 +42,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <h1 className="text-white font-semibold">Next-Talk</h1>
                     <div className="flex gap-x-1 items-center">
                         <Sun color="white" size={20} />
-                        <Switch id="airplane-mode" checked={isClient && theme === 'dark'} onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+                        <Switch className="cursor-pointer" id="airplane-mode" checked={isClient && theme === 'dark'} onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
                         <Moon color="white" size={20} />
                     </div>
                 </div>

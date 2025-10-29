@@ -30,10 +30,10 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col h-full ">
+    <main className="flex flex-col h-full ">
       {/* Chat Header */}
       <div className="flex items-center gap-3 p-4 border-b  ">
-        <SidebarTrigger className="-ml-1" />
+        <SidebarTrigger className="-ml-1 cursor-pointer" />
         <Avatar className="select-none flex justify-center items-center rounded-full h-9 w-9 bg-gray-300">
           <AvatarImage src={selectedFriend.avatar} alt={selectedFriend.name} />
           <AvatarFallback>{selectedFriend.name.charAt(0)}</AvatarFallback>
@@ -100,6 +100,6 @@ export default function Page() {
           </div>
         </form>
       </div>
-    </div>
+    </main>
   );
 }
