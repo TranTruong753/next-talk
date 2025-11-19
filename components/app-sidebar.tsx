@@ -19,11 +19,18 @@ const data = {
         email: "m@example.com",
         avatar: "/avatars/shadcn.jpg",
     },
-    navMain: [
+    friends: [
         { id: 1, name: "John Doe", status: "online", avatar: "/avatars/john.jpg", lastMessage: "Hello there!" },
         { id: 2, name: "Jane Smith", status: "offline", avatar: "/avatars/jane.jpg", lastMessage: "See you tomorrow" },
         { id: 3, name: "Mike Johnson", status: "online", avatar: "/avatars/mike.jpg", lastMessage: "How are you?" },
         { id: 4, name: "Sarah Wilson", status: "online", avatar: "/avatars/sarah.jpg", lastMessage: "I sent the documents" },
+        { id: 5, name: "Sarah DD", status: "online", avatar: "/avatars/sarah.jpg", lastMessage: "I sent the documents" },
+    ],
+    group: [
+        { id: 1, nameGroup: "3 anh hùng", avatar: "/avatars/john.jpg", nameUserSend: 'Tuấn',lastMessage: "Hello there!" },
+        { id: 2, nameGroup: "Chiên đội", avatar: "/avatars/jane.jpg", nameUserSend: 'Anh',lastMessage: "See you tomorrow" },
+        { id: 3, nameGroup: "Bay đội", avatar: "/avatars/jane.jpg", nameUserSend: 'Anh',lastMessage: "See you tomorrow" },
+
     ]
 }
 
@@ -48,7 +55,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </div>
             </SidebarHeader>
             <SidebarContent>
-                <NavMain friends={data.navMain} />
+                <NavMain friends={data.friends} group={data.group} />
             </SidebarContent>
             <SidebarFooter>
                 <NavUser user={data.user} />
