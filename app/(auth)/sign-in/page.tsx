@@ -119,7 +119,6 @@ export default function Page() {
                             <span className=" text-purple-600 cursor-pointer hover:scale-[1.02] transition-transform duration-300 font-medium underline text-sm">
                                 Forgot password?
                             </span>
-
                         </div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">

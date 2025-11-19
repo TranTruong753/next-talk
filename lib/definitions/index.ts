@@ -20,3 +20,9 @@ export const signUpFormSchema = z.object({
     .trim().min(1, { message: "Password is required." }),
 })
 
+
+export const activateFormSchema = z.object({
+  codeId: z.string().trim().min(1, { message: "codeId is required." })
+})
+
+
